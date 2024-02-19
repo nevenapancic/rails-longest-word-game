@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="letter-boxes">
+    <% @letters.each do |letter|%>
+      <div class="letter"> <%=letter.capitalize%> </div>
+    <%end%>
+    </div>
+    <form action="score" method="post" data-turbo="false">
+    <div class="form-group d-flex">
+        <input class= "form-control" name="word" type="text"  placeholder="Type your word here" value=<%= params[:word]%>>
+        <input class="btn btn-success" type="submit">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <%= hidden_field_tag :letters, @letters %>
+      </div>
+      </form>
+    </div>
+</div>
